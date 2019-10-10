@@ -23,6 +23,11 @@ console.log(dice);
 // var x = document.querySelector('#score-0').textContent;
 console.log(x);
 document.querySelector('.dice').style.display = 'none';
+
+document.getElementById('score-0').textcontent = '0';
+document.getElementById('score-1').textcontent = '0';
+document.getElementById('current-0').textcontent = '0';
+document.getElementById('current-1').textcontent = '0'; 
 function btn() {
 
 }
