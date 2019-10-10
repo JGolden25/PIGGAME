@@ -17,9 +17,32 @@ activePlayer = 1;
 dice = Math.floor(Math.random() * 6) + 1;
 console.log(dice);
 
-document.querySelector('#current-' + activePlayer).textContent =  dice;
+// document.querySelector('#current-' + activePlayer).textContent =  dice;
 // document.querySelector('#current-' + activePlayer).innerHTML = '<em>' + dice + '</em>'
 
-var x = document.querySelector('#score-0').textContent;
+// var x = document.querySelector('#score-0').textContent;
 console.log(x);
 document.querySelector('.dice').style.display = 'none';
+
+document.getElementById('score-0').textcontent = '0';
+document.getElementById('score-1').textcontent = '0';
+document.getElementById('current-0').textcontent = '0';
+document.getElementById('current-1').textcontent = '0'; 
+function btn() {
+
+}
+btn();
+
+document.querySelector('.btn-roll').addEventListener('click', function() {
+    //Random Number
+    var dice = Math.floor(Math.random() * 6) + 1;
+    //2. Display Result
+    var diceDOM = querySelector('dice');
+    diceDOM.style.display = 'block';
+    diceDOM.src = 'dice-' + dice + '.png';
+}); 
+
+// document.querySelector('#current-' + activePlayer).textContent =  dice;
+// document.querySelector('#current-' + activePlayer).innerHTML = '<em>' + dice + '</em>'
+
+// var x = document.querySelector('#score-0').textContent;
