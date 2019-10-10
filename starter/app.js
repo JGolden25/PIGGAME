@@ -40,6 +40,22 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
     var diceDOM = querySelector('dice');
     diceDOM.style.display = 'block';
     diceDOM.src = 'dice-' + dice + '.png';
+    //3.Update round score IF the rolled number was NOT a 1
+    if (dice !== 1) {
+//score
+        roundScore += dice;
+        document.querySelector('#current-' + activeplayer).textContent = roundScore;
+    } else {
+        //NextPLayer
+        activePlayer === 0 ? activePlayer = 1 : activeplayer = 0;
+        roundscore = 0;
+
+        document.getElememntById('current-0').textContent = '0';
+        document.getElememntById('current-1').textContent = '0';
+        document.querySelector('.player-0-panel').classList.remove('active');
+        document.querySelector('.player-1-panel').classList.add('active');
+        }
+    }
 }); 
 
 // document.querySelector('#current-' + activePlayer).textContent =  dice;
