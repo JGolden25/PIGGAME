@@ -10,7 +10,7 @@ GAME RULES:
 */
 var scores, roundScore, activePlayer;
 
-init()
+init();
 
 dice = Math.floor(Math.random() * 6) + 1;
 console.log(dice);
@@ -60,7 +60,7 @@ document.querySelector('.btn-hold').addEventListener('click', function() {
     document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer]
 
     //Check if player won the game
-    if (scores[activePlayer] >= 50) {
+    if (scores[activePlayer] >= 25) {
         document.querySelector('#name-' + activePlayer).textContent = 'Winner!';
         document.querySelector('dice').style.display = 'none';
         document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
@@ -102,6 +102,11 @@ document.getElementById('current-0').textcontent = '0';
 document.getElementById('current-1').textcontent = '0'; 
 document.querySelector('#name-' + activePlayer).textContent = 'Player 1';
 document.querySelector('#name-' + activePlayer).textContent = 'Player 2';
+document.querySelector('.player-0-panel').classList.remove('winner');
+document.querySelector('.player-1-panel').classList.remove('winner');
+document.querySelector('.player-0-panel').classList.remove('active');
+document.querySelector('.player-1-panel').classList.remove('active');
+document.querySelector('.player-1-panel').classList.add('active');
 }
 // document.querySelector('#current-' + activePlayer).textContent =  dice;
 // document.querySelector('#current-' + activePlayer).innerHTML = '<em>' + dice + '</em>'
