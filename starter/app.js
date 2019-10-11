@@ -40,8 +40,52 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
     var diceDOM = querySelector('dice');
     diceDOM.style.display = 'block';
     diceDOM.src = 'dice-' + dice + '.png';
+    //3.Update round score IF the rolled number was NOT a 1
+    if (dice !== 1) {
+//score
+        roundScore += dice;
+        document.querySelector('#current-' + activeplayer).textContent = roundScore;
+    } else {
+        //NextPLayer
+        nextPlayer();
+        }
+     
 }); 
 
+
+document.querySelector('.btn-hold').addEventListener('click', function() {
+    //Add CURRENT score to Global score
+    scores[activePlayer] += roundScore;
+    // scores[activeplayer] = scores[activeplayer] + roundScore;
+
+    //Update the UI
+    document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer]
+
+    //Check if player won the game
+    if (scores[activePlayer] >= 50) {
+        document.querySelector('#name-' + activePlayer).textContent = 'Winner!';
+    }
+    else {
+        //Next Player
+        nextPlayer();
+    }
+    
+});
+
+function nextPlayer() {
+    //NextPLayer
+    activePlayer === 0 ? activePlayer = 1 : activeplayer = 0;
+    roundscore = 0;
+
+    document.getElememntById('current-0').textContent = '0';
+    document.getElememntById('current-1').textContent = '0';
+    document.querySelector('.player-0-panel').classList.toggle('active');
+    document.querySelector('.player-0-panel').classList.toggle('active');
+    // document.querySelector('.player-1-panel').classList.add('active');
+   // document.querySelector('.player-0-panel').classList.remove('active');
+     
+    document.querySelector('dice').style.display = 'none';
+}
 // document.querySelector('#current-' + activePlayer).textContent =  dice;
 // document.querySelector('#current-' + activePlayer).innerHTML = '<em>' + dice + '</em>'
 
