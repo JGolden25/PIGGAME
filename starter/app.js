@@ -62,7 +62,14 @@ document.querySelector('.btn-hold').addEventListener('click', function() {
     document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer]
 
     //Check if player won the game
-    nextPlayer();
+    if (scores[activePlayer] >= 50) {
+        document.querySelector('#name-' + activePlayer).textContent = 'Winner!';
+    }
+    else {
+        //Next Player
+        nextPlayer();
+    }
+    
 });
 
 function nextPlayer() {
